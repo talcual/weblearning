@@ -8,3 +8,19 @@ los enlaces a los repos.
 
  - https://github.com/nvm-sh/nvm                (UNIX Compatible)
  - https://github.com/coreybutler/nvm-windows   (Windows)
+
+Despues de completar la instalación con cualquier de las dos opciones solo resta instalar la versión y activarla, dependiendo de sistema puede tener ligeras variaciones.
+
+Si estas en UNIX-compatible
+```
+nvm ls-remote   // Listado de versiones disponibles
+nvm install 18
+nvm use 18
+```
+
+Si estas en windows
+```
+nvm list        // Listado de versiones disponibles
+nvm install 18
+nvm use 18
+```
