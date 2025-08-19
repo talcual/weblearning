@@ -1,13 +1,19 @@
 
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
 
-app.get('/', (req, res) => {
-  console.log('Registro de visita');
-  res.send('Hello World!')
-})
+// Ruta de prueba
+app.get("/", (req, res) => {
+  res.send("¡Hola mundo desde Express!");
+});
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// Ruta dinámica
+app.get("/saludo/:nombre", (req, res) => {
+  res.send(`Hola, ${req.params.nombre}!`);
+});
+
+// Puerto de escucha
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
