@@ -110,6 +110,42 @@
         - Cada vez que cambias el estado, React vuelve a renderizar el componente.
 
     - Eventos
+
+        En React, los eventos funcionan de manera similar a JavaScript, pero se escriben en camelCase y se pasan como funciones.
+
+        Ejemplo
+        ```js
+            function Boton() {
+                const manejarClick = () => {
+                    alert("¡Hiciste clic en el botón!");
+                };
+
+                return <button onClick={manejarClick}>Haz clic</button>;
+            }    
+        ```    
+
+        Ejemplo con parametro
+        ```js
+        function Lista() {
+            const mostrarItem = (item) => {
+                console.log("Item seleccionado:", item);
+            };
+
+            return (
+                <div>
+                <button onClick={() => mostrarItem("Manzana")}>Manzana</button>
+                <button onClick={() => mostrarItem("Pera")}>Pera</button>
+                </div>
+            );
+        }
+        ```
+        Eventos comunes en React : 
+        - onClick
+        - onChange (inputs)
+        - onSubmit (formularios)
+        - onMouseEnter, onMouseLeave
+        - onKeyDown, onKeyUp
+        
     - Hooks
 
  - Buenas practicas
