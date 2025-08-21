@@ -49,9 +49,8 @@
         ```
 
         Tipos de componentes
-
-          - Presentacionales (UI) → Solo muestran datos, no manejan lógica.
-          - Contenedores (Smart) → Manejan lógica, estado y pasan props.
+        - Presentacionales (UI) → Solo muestran datos, no manejan lógica.
+        - Contenedores (Smart) → Manejan lógica, estado y pasan props.
     
     - Props
     - Estados
