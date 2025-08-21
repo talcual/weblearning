@@ -79,6 +79,36 @@
         - Props → Datos que vienen de afuera (de otro componente).
 
     - Estados
+
+        El estado son datos internos que un componente maneja y que al cambiar provocan que la UI se renderice de nuevo.
+
+        En React se maneja con el Hook useState:
+
+        ```jsx
+            import { useState } from "react";
+
+            function Contador() {
+            const [contador, setContador] = useState(0);
+
+            return (
+                <div>
+                <h2>Contador: {contador}</h2>
+                <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+                <button onClick={() => setContador(contador - 1)}>Decrementar</button>
+                </div>
+            );
+            }
+
+            export default Contador;
+        ```     
+
+        Explicación : 
+
+        - useState(0) inicializa el estado con 0.
+        - contador → valor actual del estado.
+        - setContador → función para actualizar el estado.
+        - Cada vez que cambias el estado, React vuelve a renderizar el componente.
+
     - Eventos
     - Hooks
 
