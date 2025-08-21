@@ -30,7 +30,7 @@
             function Saludo({ nombre }) {
                 return <h1>Hola, {nombre} 👋</h1>;
             }
-d
+            
             export default Saludo;
         ```
 
