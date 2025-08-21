@@ -2,6 +2,10 @@
 # Primeros pasos con React.js
 
  - Estructura de archivos
+ 
+    Crea una estructura de archivos clara, sin complicaciones, sin la necesidad de navegar en profundidad entre carpetas, 
+    de preferecia basate en un patron de arquitectura por ejemplo : Clean Code, CQRS o una arquitectura en capas. 
+
  - Conceptos
     - **JSX**
         - JSX es una sintaxis que mezcla JavaScript con HTML.
