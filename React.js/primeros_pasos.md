@@ -36,7 +36,6 @@
 
         Como puedo usarlo en App.jsx
         ```jsx
-
             import Saludo from "./Saludo";
 
             function App() {
