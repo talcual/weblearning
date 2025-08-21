@@ -3,7 +3,7 @@
 
  - Estructura de archivos
  - Conceptos
-    - JSX
+    - **JSX**
         - JSX es una sintaxis que mezcla JavaScript con HTML.
         - Permite escribir código parecido a HTML dentro de JavaScript.
 
@@ -20,7 +20,7 @@
         - Permite incrustar expresiones JS usando { }.
         - Facilita la construcción de interfaces dinámicas.
 
-    - Componentes
+    - **Componentes**
 
         Los componentes son la unidad básica de construcción en React.
         Un componente es una función que devuelve JSX (antes también había componentes de clase, pero hoy se recomienda usar funcionales con Hooks).
@@ -52,7 +52,7 @@
         - Presentacionales (UI) → Solo muestran datos, no manejan lógica.
         - Contenedores (Smart) → Manejan lógica, estado y pasan props.
     
-    - Props
+    - **Props**
 
         Las props son la forma en que un componente recibe datos desde su padre.
         Son inmutables: el componente hijo solo las usa, no las cambia.
@@ -78,7 +78,7 @@
         - Estado (useState) → Datos internos que cambian dentro de un componente.
         - Props → Datos que vienen de afuera (de otro componente).
 
-    - Estados
+    - **Estados**
 
         El estado son datos internos que un componente maneja y que al cambiar provocan que la UI se renderice de nuevo.
 
@@ -109,7 +109,7 @@
         - setContador → función para actualizar el estado.
         - Cada vez que cambias el estado, React vuelve a renderizar el componente.
 
-    - Eventos
+    - **Eventos**
 
         En React, los eventos funcionan de manera similar a JavaScript, pero se escriben en camelCase y se pasan como funciones.
 
@@ -146,7 +146,7 @@
         - onMouseEnter, onMouseLeave
         - onKeyDown, onKeyUp
 
-    - Hooks
+    - **Hooks**
 
         Los Hooks son funciones especiales que permiten usar estado, ciclo de vida y lógica reutilizable en componentes funcionales.
 
@@ -176,7 +176,7 @@
                 return <h2>Hora actual: {hora}</h2>;
             }
         ```  
-        
+
         En resumen :
         - Los Hooks permiten agregar funcionalidades a los componentes sin necesidad de clases.
         - Se pueden combinar y crear hooks personalizados (useFetch, useAuth, etc.).
