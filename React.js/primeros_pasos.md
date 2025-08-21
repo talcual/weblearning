@@ -53,6 +53,31 @@
         - Contenedores (Smart) → Manejan lógica, estado y pasan props.
     
     - Props
+
+        Las props son la forma en que un componente recibe datos desde su padre.
+        Son inmutables: el componente hijo solo las usa, no las cambia.
+
+        Ejemplo
+        ```jsx
+            function Saludo({ nombre, edad }) {
+                return <h2>Hola {nombre}, tienes {edad} años</h2>;
+            }
+
+            function App() {
+                return (
+                    <div>
+                    <Saludo nombre="Luis" edad={30} />
+                    <Saludo nombre="Fernando" edad={25} />
+                    </div>
+                );
+            }
+        ```
+
+        Diferencia clave:
+
+        - Estado (useState) → Datos internos que cambian dentro de un componente.
+        - Props → Datos que vienen de afuera (de otro componente).
+
     - Estados
     - Eventos
     - Hooks
