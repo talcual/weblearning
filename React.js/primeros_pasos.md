@@ -9,6 +9,17 @@
 
         React lo convierte en llamadas a React.createElement para construir la UI.
 
+        ```jsx
+            const name = "Luis";
+            const element = <h1>Hola, {name} 👋</h1>;
+        ```
+
+        Ventajas de JSX:
+
+        - Más legible que usar React.createElement.
+        - Permite incrustar expresiones JS usando { }.
+        - Facilita la construcción de interfaces dinámicas.
+
     - Componentes
     - Props
     - Estados
