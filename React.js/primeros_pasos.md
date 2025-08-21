@@ -26,7 +26,7 @@
         Un componente es una función que devuelve JSX (antes también había componentes de clase, pero hoy se recomienda usar funcionales con Hooks).
 
         Componente funcional
-        ```js
+        ```jsx
             function Saludo({ nombre }) {
             return <h1>Hola, {nombre} 👋</h1>;
             }
@@ -49,7 +49,7 @@
             }
 
         ```
-        
+
         Tipos de componentes
 
           - Presentacionales (UI) → Solo muestran datos, no manejan lógica.
