@@ -21,6 +21,38 @@
         - Facilita la construcción de interfaces dinámicas.
 
     - Componentes
+        Los componentes son la unidad básica de construcción en React.
+        Un componente es una función que devuelve JSX (antes también había componentes de clase, pero hoy se recomienda usar funcionales con Hooks).
+
+        Componente funcional
+        ```js
+            function Saludo({ nombre }) {
+            return <h1>Hola, {nombre} 👋</h1>;
+            }
+
+            export default Saludo;
+        ```
+
+        Como puedo usarlo en App.jsx
+        ```jsx
+
+            import Saludo from "./Saludo";
+
+            function App() {
+                return (
+                    <div>
+                    <Saludo nombre="Luis" />
+                    <Saludo nombre="Fernando" />
+                    </div>
+                );
+            }
+
+        ```
+        Tipos de componentes
+
+          - Presentacionales (UI) → Solo muestran datos, no manejan lógica.
+          - Contenedores (Smart) → Manejan lógica, estado y pasan props.
+    
     - Props
     - Estados
     - Eventos
