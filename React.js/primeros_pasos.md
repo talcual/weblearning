@@ -21,6 +21,7 @@
         - Facilita la construcción de interfaces dinámicas.
 
     - Componentes
+    
         Los componentes son la unidad básica de construcción en React.
         Un componente es una función que devuelve JSX (antes también había componentes de clase, pero hoy se recomienda usar funcionales con Hooks).
 
