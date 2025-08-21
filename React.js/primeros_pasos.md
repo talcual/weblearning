@@ -145,8 +145,41 @@
         - onSubmit (formularios)
         - onMouseEnter, onMouseLeave
         - onKeyDown, onKeyUp
-        
+
     - Hooks
+
+        Los Hooks son funciones especiales que permiten usar estado, ciclo de vida y lógica reutilizable en componentes funcionales.
+
+        Los más comunes son:
+
+        - useState → Manejo de estado interno.
+        - useEffect → Efectos secundarios (peticiones a API, suscripciones, timers).
+        - useContext → Acceso a contexto global.
+
+        Ejemplo con useEffect y useState:
+
+        ```jsx
+            import { useState, useEffect } from "react";
+
+            function Reloj() {
+                const [hora, setHora] = useState(new Date().toLocaleTimeString());
+
+                useEffect(() => {
+                    const timer = setInterval(() => {
+                    setHora(new Date().toLocaleTimeString());
+                    }, 1000);
+
+                    // Limpieza cuando el componente se desmonta
+                    return () => clearInterval(timer);
+                }, []);
+
+                return <h2>Hora actual: {hora}</h2>;
+            }
+        ```  
+        
+        En resumen :
+        - Los Hooks permiten agregar funcionalidades a los componentes sin necesidad de clases.
+        - Se pueden combinar y crear hooks personalizados (useFetch, useAuth, etc.).
 
  - Buenas practicas
     - Componentes pequeños y reutilizables
