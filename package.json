@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^5.1.0",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "hyper-express": "^6.17.3"
   }
 }

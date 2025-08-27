@@ -2,15 +2,9 @@
 const express = require("express");
 const app = express();
 
-// Ruta de prueba
-app.get("/", (req, res) => {
-  res.send("¡Hola mundo desde Express!");
-});
+const taskRouter = require("./routes/task.route")(express);
 
-// Ruta dinámica
-app.get("/saludo/:nombre", (req, res) => {
-  res.send(`Hola, ${req.params.nombre}!`);
-});
+app.use("/tasks", taskRouter);
 
 // Puerto de escucha
 const PORT = 3000;
