@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Completo de JavaScript - Página Principal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitulo {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .modulos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .modulo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .modulo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modulo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .modulo-content {
+            padding: 25px;
+        }
+
+        .modulo-content h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .modulo-content ul {
+            list-style: none;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .modulo-content li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .modulo-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .modulo-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button.secundario {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        button.secundario:hover {
+            background: #d0d0d0;
+        }
+
+        .recursos-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .recursos-section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .recurso-item {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .recurso-item:hover {
+            background: #efefef;
+            transform: translateX(5px);
+        }
+
+        .recurso-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .recurso-item p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .recurso-item a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .recurso-item a:hover {
+            text-decoration: underline;
+        }
+
+        .estadisticas {
+            background: #667eea;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .estadisticas h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .level-badge.basico {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .level-badge.intermedio {
+            background: #ffe0b2;
+            color: #e65100;
+        }
+
+        .level-badge.avanzado {
+            background: #ffccbc;
+            color: #bf360c;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .modulos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .modal-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 2em;
+            cursor: pointer;
+            color: #667eea;
+            background: none;
+            border: none;
+            padding: 0;
+            width: auto;
+            margin: 0;
+            margin-top: -10px;
+        }
+
+        .close-btn:hover {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <!-- HEADER -->
+        <header>
+            <h1>📚 JavaScript Completo</h1>
+            <p class="subtitulo">De Principiante a Profesional</p>
+            <p style="margin-top: 10px; opacity: 0.9;">Curso interactivo con 5 módulos, ejercicios y ejemplos prácticos</p>
+        </header>
+
+        <!-- ESTADÍSTICAS -->
+        <div class="estadisticas">
+            <h2>📊 Información del Curso</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Módulos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">77-100</div>
+                    <div class="stat-label">Horas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Ejercicios</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Proyectos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MÓDULOS -->
+        <h2 style="color: white; margin-bottom: 30px; font-size: 2em;">📖 Módulos de Estudio</h2>
+
+        <div class="modulos-grid">
+            <!-- MÓDULO 1 -->
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    🎯 MÓDULO 1: Fundamentos
+                </div>
+                <div class="modulo-content">
+                    <h3>Nivel Básico</h3>
+                    <span class="level-badge basico">PRINCIPIANTE</span>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.95em;">Aprende la sintaxis esencial de JavaScript</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Variables (var, let, const)</li>
+                        <li>Tipos de datos</li>
+                        <li>Operadores</li>
+                        <li>Estructuras de control</li>
+                        <li>Funciones</li>
+                        <li>Manejo de errores</li>
+                    </ul>
+                    <div class="modulo-buttons">
+                        <button onclick="abrirArchivo('modulo-1-fundamentos.js')">📄 Ver Código</button>
+                        <button class="secundario" onclick="abrirModal('modulo1')">ℹ️ Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 2 -->
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    🎨 MÓDULO 2: DOM y Eventos
+                </div>
+                <div class="modulo-content">
+                    <h3>Nivel Básico-Intermedio</h3>
+                    <span class="level-badge intermedio">INTERMEDIO</span>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.95em;">Manipula elementos HTML con JavaScript</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Selectores del DOM</li>
+                        <li>Modificar elementos</li>
+                        <li>Eventos y listeners</li>
+                        <li>Formularios</li>
+                        <li>Delegación de eventos</li>
+                    </ul>
+                    <div class="modulo-buttons">
+                        <button onclick="abrirArchivo('modulo-2-dom-eventos.html')">🌐 Ver Demo</button>
+                        <button class="secundario" onclick="abrirModal('modulo2')">ℹ️ Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 3 -->
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    🏗️ MÓDULO 3: POO
+                </div>
+                <div class="modulo-content">
+                    <h3>Nivel Intermedio</h3>
+                    <span class="level-badge intermedio">INTERMEDIO</span>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.95em;">Programación orientada a objetos en JS</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Objetos y métodos</li>
+                        <li>This, call, apply, bind</li>
+                        <li>Clases ES6</li>
+                        <li>Herencia</li>
+                        <li>Encapsulamiento</li>
+                        <li>Propiedades privadas</li>
+                    </ul>
+                    <div class="modulo-buttons">
+                        <button onclick="abrirArchivo('modulo-3-poo.js')">📄 Ver Código</button>
+                        <button class="secundario" onclick="abrirModal('modulo3')">ℹ️ Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 4 -->
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    ⚡ MÓDULO 4: Funciones Avanzadas
+                </div>
+                <div class="modulo-content">
+                    <h3>Nivel Avanzado</h3>
+                    <span class="level-badge avanzado">AVANZADO</span>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.95em;">Conceptos avanzados de JavaScript</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Closures</li>
+                        <li>Scope chain</li>
+                        <li>Currying</li>
+                        <li>Promesas</li>
+                        <li>Async/Await</li>
+                        <li>Event Loop</li>
+                    </ul>
+                    <div class="modulo-buttons">
+                        <button onclick="abrirArchivo('modulo-4-funciones-avanzadas.js')">📄 Ver Código</button>
+                        <button class="secundario" onclick="abrirModal('modulo4')">ℹ️ Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 5 -->
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    🌐 MÓDULO 5: APIs
+                </div>
+                <div class="modulo-content">
+                    <h3>Nivel Avanzado</h3>
+                    <span class="level-badge avanzado">AVANZADO</span>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.95em;">Consume APIs y maneja datos</p>
+                    <ul style="margin-top: 15px;">
+                        <li>JSON</li>
+                        <li>Fetch API</li>
+                        <li>Métodos REST</li>
+                        <li>Manejo de errores</li>
+                        <li>WebSockets</li>
+                    </ul>
+                    <div class="modulo-buttons">
+                        <button onclick="abrirArchivo('modulo-5-apis.js')">📄 Ver Código</button>
+                        <button class="secundario" onclick="abrirModal('modulo5')">ℹ️ Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GUÍA PRÁCTICA -->
+            <div class="modulo-card">
+                <div class="modulo-header">
+                    📝 Guía de Estudio
+                </div>
+                <div class="modulo-content">
+                    <h3>Recursos Complementarios</h3>
+                    <ul style="margin-top: 15px;">
+                        <li>Estructura del curso</li>
+                        <li>Consejos de estudio</li>
+                        <li>Proyectos recomendados</li>
+                        <li>Checklist de aprendizaje</li>
+                        <li>Mejores prácticas</li>
+                    </ul>
+                    <div class="modulo-buttons">
+                        <button onclick="abrirArchivo('GUIA-ESTUDIO.md')">📚 Leer Guía</button>
+                        <button class="secundario" onclick="abrirArchivo('RESUMEN-RAPIDO.md')">⚡ Resumen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECURSOS -->
+        <div class="recursos-section">
+            <h2>📚 Recursos Adicionales</h2>
+            <div class="recursos-grid">
+                <div class="recurso-item">
+                    <h4>Ejercicios Prácticos</h4>
+                    <p>Más de 50 ejercicios resueltos con diferentes niveles de dificultad para practicar cada concepto.</p>
+                    <a href="#" onclick="abrirArchivo('EJERCICIOS.md'); return false;">Ver ejercicios →</a>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Resumen Rápido</h4>
+                    <p>Cheat sheet con los conceptos clave. Perfecta como referencia rápida durante el desarrollo.</p>
+                    <a href="#" onclick="abrirArchivo('RESUMEN-RAPIDO.md'); return false;">Descargar →</a>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Documentación Oficial</h4>
+                    <p>Enlaces a la documentación oficial de JavaScript y recursos externas recomendadas.</p>
+                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">MDN Web Docs →</a>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>APIs de Prueba</h4>
+                    <p>Listado de APIs gratuitas para practicar requests HTTP en los ejemplos del módulo 5.</p>
+                    <a href="https://jsonplaceholder.typicode.com" target="_blank">JSONPlaceholder →</a>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>DevTools</h4>
+                    <p>Cómo utilizar las herramientas de desarrollo del navegador para debuguear JavaScript.</p>
+                    <a href="https://developer.chrome.com/docs/devtools" target="_blank">Chrome DevTools →</a>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Comunidades</h4>
+                    <p>Comunidades donde puedes resolver dudas y compartir proyectos con otros desarrolladores.</p>
+                    <a href="https://stackoverflow.com/questions/tagged/javascript" target="_blank">Stack Overflow →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CÓMO USAR -->
+        <div class="recursos-section" style="background: #f0f4ff; border-left: 5px solid #667eea;">
+            <h2 style="border-color: #667eea; color: #667eea;">🚀 Cómo Usar Este Curso</h2>
+            <ol style="color: #666; line-height: 2; font-size: 1.05em;">
+                <li><strong>Lee</strong> la teoría en cada módulo (incluye ejemplos)</li>
+                <li><strong>Ejecuta</strong> los ejemplos en la consola del navegador (F12)</li>
+                <li><strong>Practica</strong> los ejercicios propuestos en EJERCICIOS.md</li>
+                <li><strong>Experimenta</strong> modificando el código de los ejemplos</li>
+                <li><strong>Crea</strong> pequeños proyectos aplicando lo aprendido</li>
+                <li><strong>Consulta</strong> el RESUMEN-RAPIDO.md cuando necesites recordar algo</li>
+            </ol>
+        </div>
+
+        <!-- CONSEJOS -->
+        <div class="recursos-section" style="background: #fff3cd; border-left: 5px solid #ffc107;">
+            <h2 style="border-color: #ffc107; color: #856404;">💡 Consejos para Aprender</h2>
+            <ul style="color: #856404; line-height: 2; font-size: 1.05em;">
+                <li>✓ Practica <strong>todos los días</strong>, aunque sea 30 minutos</li>
+                <li>✓ <strong>Entiende</strong> el código, no solo lo copies</li>
+                <li>✓ Usa la <strong>consola del navegador</strong> para experimentar</li>
+                <li>✓ Lee <strong>código de otros</strong> en GitHub</li>
+                <li>✓ <strong>No temas los errores</strong>, son tu mejor aliado</li>
+                <li>✓ Intenta <strong>enseñar a otros</strong> lo que aprendiste</li>
+                <li>✓ Resuelve <strong>problemas reales</strong>, no solo ejercicios</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p><strong>Curso Completo de JavaScript 2025</strong></p>
+            <p style="margin-top: 10px; opacity: 0.9;">Material educativo de código abierto para aprender JavaScript desde cero</p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">¡Que disfrutes aprendiendo! 🚀</p>
+        </footer>
+    </div>
+
+    <!-- MODAL -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="cerrarModal()">&times;</button>
+            <h3 id="modalTitle"></h3>
+            <p id="modalContent"></p>
+            <button onclick="cerrarModal()" style="width: 100%; margin-top: 20px;">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function abrirArchivo(archivo) {
+            window.location.href = archivo;
+        }
+
+        function abrirModal(modulo) {
+            const contenidos = {
+                modulo1: {
+                    titulo: "Módulo 1: Fundamentos",
+                    contenido: "Este módulo te enseña la sintaxis básica de JavaScript. Aprenderás variables, tipos de datos, operadores y estructuras de control. Es el punto de partida para entender cómo funciona el lenguaje. Tiempo estimado: 15-20 horas."
+                },
+                modulo2: {
+                    titulo: "Módulo 2: DOM y Eventos",
+                    contenido: "Aquí aprendes a manipular elementos HTML y manejar eventos del usuario. Es fundamental para crear páginas web interactivas. Incluye ejemplos prácticos en el archivo HTML. Tiempo estimado: 12-15 horas."
+                },
+                modulo3: {
+                    titulo: "Módulo 3: POO",
+                    contenido: "Domina la Programación Orientada a Objetos en JavaScript. Aprenderás sobre clases, herencia, encapsulamiento y más. Estos conceptos son cruciales para código profesional y mantenible. Tiempo estimado: 15-20 horas."
+                },
+                modulo4: {
+                    titulo: "Módulo 4: Funciones Avanzadas",
+                    contenido: "El módulo más avanzado de funciones. Incluye closures, promesas, async/await y el event loop. Estos conceptos son esenciales para trabajar con código asíncrono. Tiempo estimado: 20-25 horas."
+                },
+                modulo5: {
+                    titulo: "Módulo 5: APIs",
+                    contenido: "Aprende a consumir APIs REST y trabajar con datos JSON. Incluye ejemplos prácticos con fetch, promesas y WebSockets. Fundamental para desarrollo web moderno. Tiempo estimado: 15-20 horas."
+                }
+            };
+
+            const modal = document.getElementById('myModal');
+            const content = contenidos[modulo];
+            document.getElementById('modalTitle').textContent = content.titulo;
+            document.getElementById('modalContent').textContent = content.contenido;
+            modal.classList.add('show');
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('myModal');
+            modal.classList.remove('show');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target === modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        // Mensaje de bienvenida
+        window.addEventListener('load', function() {
+            console.log('%c✓ ¡Bienvenido al Curso de JavaScript!', 'font-size: 20px; color: #667eea; font-weight: bold;');
+            console.log('%cAbre la consola (F12) para experimentar con los ejemplos.', 'font-size: 14px; color: #666;');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2 - Manipulación del DOM y Eventos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .contenedor {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+        }
+
+        .seccion {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .resultado {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .resultado.mostrar {
+            display: block;
+        }
+
+        .error {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            color: #c62828;
+        }
+
+        .lista-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista-items li {
+            background: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+
+        .lista-items button {
+            background: #f44336;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .lista-items button:hover {
+            background: #d32f2f;
+        }
+
+        .elemento-resaltado {
+            background: #fff3cd;
+            transition: background 0.3s;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .atributos-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        .atributos-table th,
+        .atributos-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .atributos-table th {
+            background: #667eea;
+            color: white;
+        }
+
+        .grid-ejemplos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-ejemplos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>📌 MÓDULO 2: Manipulación del DOM y Eventos</h1>
+        <p><strong>Objetivo:</strong> Controlar elementos de una página web con JavaScript.</p>
+
+        <!-- ========================================
+             1. INTRODUCCIÓN AL DOM
+             ======================================== -->
+        <h2>1️⃣ Introducción al DOM</h2>
+        <div class="seccion">
+            <p>El DOM (Document Object Model) es una representación en árbol de los elementos HTML. JavaScript puede acceder y modificar cada elemento.</p>
+            <p>Estructura típica:</p>
+            <pre><code>
+document
+├── html
+│   ├── head
+│   │   ├── title
+│   │   └── meta
+│   └── body
+│       ├── h1
+│       ├── p
+│       └── button
+            </code></pre>
+            <p id="demo-dom">Este es un elemento de demostración</p>
+        </div>
+
+        <!-- ========================================
+             2. SELECTORES
+             ======================================== -->
+        <h2>2️⃣ Selectores del DOM</h2>
+        <div class="seccion">
+            <h3>getElementById - Seleccionar por ID</h3>
+            <div id="elemento-por-id" style="background: #e3f2fd; padding: 10px; margin: 10px 0;">
+                Elemento con ID
+            </div>
+            <button onclick="demo_getElementById()">Obtener por ID</button>
+            <div class="resultado" id="resultado-id"></div>
+
+            <h3>querySelector - Seleccionar el primer elemento</h3>
+            <div class="caja">Caja 1</div>
+            <div class="caja">Caja 2</div>
+            <div class="caja">Caja 3</div>
+            <button onclick="demo_querySelector()">Seleccionar Primera Caja</button>
+            <div class="resultado" id="resultado-query"></div>
+
+            <h3>querySelectorAll - Seleccionar todos</h3>
+            <button onclick="demo_querySelectorAll()">Seleccionar Todas las Cajas</button>
+            <div class="resultado" id="resultado-queryall"></div>
+
+            <h3>getElementsByClassName - Seleccionar por clase</h3>
+            <button onclick="demo_getElementsClass()">Contar elementos por clase</button>
+            <div class="resultado" id="resultado-class"></div>
+
+            <h3>getElementsByTagName - Seleccionar por etiqueta</h3>
+            <button onclick="demo_getElementsTag()">Contar todos los párrafos</button>
+            <div class="resultado" id="resultado-tag"></div>
+        </div>
+
+        <!-- ========================================
+             3. MANIPULACIÓN DEL DOM
+             ======================================== -->
+        <h2>3️⃣ Manipulación del DOM</h2>
+        <div class="grid-ejemplos">
+            <!-- Cambiar texto -->
+            <div class="seccion">
+                <h3>Cambiar Texto</h3>
+                <p id="parrafo-cambiar">Texto original</p>
+                <button onclick="cambiarTexto()">Cambiar Texto</button>
+                <button onclick="cambiarHTML()">Cambiar HTML</button>
+            </div>
+
+            <!-- Cambiar atributos -->
+            <div class="seccion">
+                <h3>Cambiar Atributos</h3>
+                <img id="imagen-demo" src="https://via.placeholder.com/100" alt="Demo">
+                <br>
+                <button onclick="cambiarAtributos()">Cambiar Atributos</button>
+            </div>
+        </div>
+
+        <div class="grid-ejemplos">
+            <!-- Cambiar estilos -->
+            <div class="seccion">
+                <h3>Cambiar Estilos (CSS)</h3>
+                <div id="elemento-estilo" style="width: 100px; height: 100px; background: blue; margin: 10px;">
+                    Elemento
+                </div>
+                <button onclick="cambiarEstilo()">Cambiar Estilo</button>
+            </div>
+
+            <!-- Agregar/Remover clases -->
+            <div class="seccion">
+                <h3>Agregar/Remover Clases</h3>
+                <div id="elemento-clase" style="padding: 10px; background: white; border: 2px solid #667eea;">
+                    Sin clase especial
+                </div>
+                <button onclick="agregarClase()">Agregar Clase</button>
+                <button onclick="removerClase()">Remover Clase</button>
+                <button onclick="toggleClase()">Toggle Clase</button>
+            </div>
+        </div>
+
+        <!-- Crear y eliminar nodos -->
+        <div class="seccion">
+            <h3>Crear y Eliminar Elementos</h3>
+            <div id="contenedor-items">
+                <p>Item 1</p>
+                <p>Item 2</p>
+            </div>
+            <button onclick="crearElemento()">Crear Nuevo Elemento</button>
+            <button onclick="eliminarElemento()">Eliminar Último Elemento</button>
+            <button onclick="limpiarContenedor()">Limpiar Todo</button>
+        </div>
+
+        <!-- ========================================
+             4. EVENTOS EN JAVASCRIPT
+             ======================================== -->
+        <h2>4️⃣ Eventos en JavaScript</h2>
+        
+        <div class="seccion">
+            <h3>Evento Click</h3>
+            <button onclick="evento_click()">Click aquí (atributo onclick)</button>
+            <button id="btn-click-listener">Click aquí (addEventListener)</button>
+            <div class="resultado" id="resultado-click"></div>
+        </div>
+
+        <div class="seccion">
+            <h3>Evento Change</h3>
+            <select id="selector-opciones">
+                <option value="">Selecciona una opción</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+            <div class="resultado" id="resultado-change"></div>
+        </div>
+
+        <div class="seccion">
+            <h3>Evento Input (Mientras escribes)</h3>
+            <input type="text" id="entrada-texto" placeholder="Escribe algo...">
+            <div class="resultado" id="resultado-input"></div>
+        </div>
+
+        <div class="seccion">
+            <h3>Evento KeyUp (Cuando sueltas una tecla)</h3>
+            <input type="text" id="entrada-keyup" placeholder="Presiona teclas...">
+            <div class="resultado" id="resultado-keyup"></div>
+        </div>
+
+        <div class="seccion">
+            <h3>Evento Mouseover/Mouseout</h3>
+            <div id="elemento-hover" style="padding: 20px; background: lightblue; border-radius: 5px; text-align: center;">
+                Pasa el ratón sobre mí
+            </div>
+            <div class="resultado" id="resultado-hover"></div>
+        </div>
+
+        <div class="seccion">
+            <h3>Evento Focus/Blur</h3>
+            <input type="text" id="entrada-focus" placeholder="Haz click aquí para ver focus/blur">
+            <div class="resultado" id="resultado-focus"></div>
+        </div>
+
+        <!-- ========================================
+             5. MANEJO DE FORMULARIOS
+             ======================================== -->
+        <h2>5️⃣ Manejo de Formularios</h2>
+        
+        <div class="seccion">
+            <h3>Validación Simple de Formulario</h3>
+            <form id="formulario-demo" onsubmit="validarFormulario(event)">
+                <div>
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="edad">Edad:</label><br>
+                    <input type="number" id="edad" name="edad" min="1" max="120" required>
+                </div>
+                <div>
+                    <label for="pais">País:</label><br>
+                    <select id="pais" name="pais" required>
+                        <option value="">-- Selecciona un país --</option>
+                        <option value="españa">España</option>
+                        <option value="mexico">México</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="colombia">Colombia</option>
+                    </select>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="terminos"> Acepto términos y condiciones
+                    </label>
+                </div>
+                <button type="submit">Enviar Formulario</button>
+                <button type="reset">Limpiar</button>
+            </form>
+            <div class="resultado" id="resultado-form"></div>
+        </div>
+
+        <!-- ========================================
+             6. DELEGACIÓN DE EVENTOS
+             ======================================== -->
+        <h2>6️⃣ Delegación de Eventos</h2>
+        
+        <div class="seccion">
+            <h3>¿Qué es la Delegación de Eventos?</h3>
+            <p>En lugar de agregar un listener a cada elemento, agregamos uno al padre. El evento "burbuja" desde el hijo al padre.</p>
+            
+            <h4>Lista de Tareas (con delegación)</h4>
+            <div style="display: flex; gap: 10px; margin: 10px 0;">
+                <input type="text" id="nueva-tarea" placeholder="Nueva tarea...">
+                <button onclick="agregarTarea()">Agregar</button>
+            </div>
+            
+            <ul id="lista-tareas" class="lista-items">
+                <li>
+                    Aprender JavaScript
+                    <button>Eliminar</button>
+                </li>
+                <li>
+                    Dominar el DOM
+                    <button>Eliminar</button>
+                </li>
+                <li>
+                    Practicar eventos
+                    <button>Eliminar</button>
+                </li>
+            </ul>
+            <p><small>💡 Haz click en "Eliminar" para ver la delegación en acción</small></p>
+        </div>
+
+        <!-- ========================================
+             EJEMPLOS COMPLETOS
+             ======================================== -->
+        <h2>📚 Ejemplos Completos</h2>
+        
+        <div class="seccion">
+            <h3>Contador Interactivo</h3>
+            <div style="font-size: 32px; text-align: center; margin: 20px 0;">
+                <span id="contador">0</span>
+            </div>
+            <div style="text-align: center;">
+                <button onclick="decrementarContador()">- Decrementar</button>
+                <button onclick="resetContador()">Reset</button>
+                <button onclick="incrementarContador()">+ Incrementar</button>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h3>Luz/Oscuro Toggle</h3>
+            <button onclick="toggleTema()">🌙 Cambiar a Tema Oscuro</button>
+            <p id="estado-tema">Tema actual: Claro</p>
+        </div>
+
+        <div class="seccion">
+            <h3>Editor de Texto en Vivo</h3>
+            <textarea id="editor-texto" style="width: 100%; height: 150px; font-size: 14px;" placeholder="Escribe aquí..."></textarea>
+            <div class="resultado mostrar" id="resultado-editor" style="margin-top: 10px;">
+                <strong>Estadísticas:</strong>
+                <p id="stats-texto"></p>
+            </div>
+        </div>
+
+        <div class="resultado" style="display: block; margin-top: 30px; background: #e1f5fe;">
+            <h3>✓ Módulo 2 Completado</h3>
+            <p>Has aprendido a manipular el DOM y manejar eventos en JavaScript. Ahora puedes:</p>
+            <ul>
+                <li>Seleccionar elementos del DOM</li>
+                <li>Modificar contenido, atributos y estilos</li>
+                <li>Crear y eliminar elementos</li>
+                <li>Manejar eventos (click, change, input, etc.)</li>
+                <li>Validar formularios</li>
+                <li>Usar delegación de eventos</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="modulo-2-dom-eventos.js"></script>
+</body>
+</html>

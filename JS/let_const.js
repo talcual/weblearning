@@ -1,7 +1,6 @@
 
 
-var apellido = 'Toscano 
-gdhfdghsd hhfgfhfhg fhg'
+var apellido = 'Toscano';
 
 let nombre = "Luis"; // valor que puede cambiar
 nombre = "Fernando";
