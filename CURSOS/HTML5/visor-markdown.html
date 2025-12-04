@@ -13,456 +13,439 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #1a1a2e;
+            color: #eee;
+            line-height: 1.7;
         }
 
         header {
-            background-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         header h1 {
-            margin-bottom: 5px;
+            font-size: 1.4em;
+            font-weight: 600;
         }
 
         .controls {
             display: flex;
             gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
         }
 
         button {
-            padding: 10px 20px;
-            background-color: white;
-            color: #667eea;
-            border: none;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 4px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 0.9em;
             transition: all 0.3s;
         }
 
         button:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            display: flex;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        aside {
-            width: 250px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-        }
-
-        aside h3 {
-            margin-bottom: 15px;
-            color: #667eea;
-            font-size: 1.1em;
-        }
-
-        aside ul {
-            list-style: none;
-        }
-
-        aside li {
-            margin-bottom: 10px;
-        }
-
-        aside a {
-            color: #667eea;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: color 0.3s;
-            display: block;
-            padding: 5px 0;
-            border-left: 3px solid transparent;
-            padding-left: 10px;
-        }
-
-        aside a:hover {
-            color: #764ba2;
-            border-left-color: #667eea;
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         main {
-            flex: 1;
-            background-color: white;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            min-height: calc(100vh - 200px);
+            background-color: #16213e;
+            min-height: calc(100vh - 60px);
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
-            color: #222;
+        /* Títulos */
+        main h1, main h2, main h3, main h4, main h5, main h6 {
+            color: #fff;
             font-weight: 600;
-            scroll-margin-top: 100px;
+            margin-top: 2em;
+            margin-bottom: 0.8em;
         }
 
-        h1 {
-            font-size: 2.5em;
+        main h1 {
+            font-size: 2.2em;
+            color: #667eea;
             border-bottom: 3px solid #667eea;
-            padding-bottom: 0.3em;
+            padding-bottom: 0.4em;
+            margin-top: 0;
         }
 
-        h2 {
-            font-size: 2em;
-            color: #667eea;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 0.2em;
+        main h2 {
+            font-size: 1.8em;
+            color: #a29bfe;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
         }
 
-        h3 {
-            font-size: 1.5em;
-            color: #333;
+        main h3 {
+            font-size: 1.4em;
+            color: #74b9ff;
         }
 
-        p {
-            margin-bottom: 1em;
-            line-height: 1.8;
+        main h4 {
+            font-size: 1.2em;
+            color: #81ecec;
+        }
+
+        /* Párrafos */
+        main p {
+            margin-bottom: 1.2em;
+            color: #ddd;
             text-align: justify;
-            color: #444;
         }
 
-        a {
-            color: #667eea;
+        /* Enlaces */
+        main a {
+            color: #74b9ff;
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        a:hover {
-            color: #764ba2;
+        main a:hover {
+            color: #a29bfe;
             text-decoration: underline;
         }
 
-        ul, ol {
-            margin-left: 2em;
-            margin-bottom: 1em;
+        /* Listas */
+        main ul, main ol {
+            margin-left: 1.5em;
+            margin-bottom: 1.2em;
+            color: #ddd;
         }
 
-        li {
-            margin-bottom: 0.5em;
-            line-height: 1.6;
-            color: #444;
+        main li {
+            margin-bottom: 0.6em;
+            padding-left: 0.5em;
         }
 
-        pre {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            border-left: 4px solid #667eea;
-            padding: 15px;
+        /* Bloques de código */
+        main pre {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
             overflow-x: auto;
             margin: 1.5em 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre;
+            word-wrap: normal;
+        }
+
+        main pre code {
+            background: none !important;
+            color: #e6edf3 !important;
+            padding: 0 !important;
+            font-size: inherit;
+            white-space: pre;
+        }
+
+        /* Código inline */
+        main code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            background-color: rgba(110, 118, 129, 0.4);
+            color: #ff7b72;
+            padding: 3px 6px;
             border-radius: 4px;
-            font-family: 'Courier New', monospace;
             font-size: 0.9em;
-            line-height: 1.5;
         }
 
-        code {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            background-color: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 3px;
-            color: #d63384;
-        }
-
-        pre code {
-            background-color: transparent;
-            color: #f8f8f2;
-            padding: 0;
-            border-radius: 0;
-        }
-
-        hr {
+        /* Línea horizontal */
+        main hr {
             border: none;
-            border-top: 2px solid #ddd;
-            margin: 2em 0;
+            border-top: 2px solid #30363d;
+            margin: 2.5em 0;
         }
 
-        strong {
+        /* Negrita y cursiva */
+        main strong {
             font-weight: 700;
-            color: #222;
+            color: #fff;
         }
 
-        em {
+        main em {
             font-style: italic;
-            color: #555;
+            color: #b8b8b8;
         }
 
-        blockquote {
+        /* Blockquote */
+        main blockquote {
             border-left: 4px solid #667eea;
-            padding-left: 1em;
-            margin-left: 0;
-            color: #666;
-            font-style: italic;
-            margin: 1em 0;
-            background-color: #f9f9f9;
-            padding: 1em;
-            border-radius: 4px;
+            padding: 1em 1.5em;
+            margin: 1.5em 0;
+            background-color: rgba(102, 126, 234, 0.1);
+            border-radius: 0 6px 6px 0;
+            color: #b8b8b8;
         }
 
-        table {
+        /* Tablas */
+        main table {
             border-collapse: collapse;
             width: 100%;
             margin: 1.5em 0;
         }
 
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 12px;
+        main table th, main table td {
+            border: 1px solid #30363d;
+            padding: 12px 15px;
             text-align: left;
         }
 
-        table th {
+        main table th {
             background-color: #667eea;
             color: white;
             font-weight: 600;
         }
 
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
+        main table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
-        table tr:hover {
-            background-color: #f0f0f0;
-        }
-
+        /* Estados */
         .loading {
             text-align: center;
-            padding: 40px;
-            color: #666;
+            padding: 60px;
+            color: #888;
+            font-size: 1.2em;
         }
 
         .error {
-            background-color: #fee;
-            border: 1px solid #fcc;
-            border-radius: 4px;
+            background-color: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff6b6b;
+            border-radius: 6px;
             padding: 20px;
-            color: #c00;
+            color: #ff6b6b;
             margin: 20px 0;
         }
 
-        .success {
-            background-color: #efe;
-            border: 1px solid #cfc;
-            border-radius: 4px;
-            padding: 15px;
-            color: #0a0;
-            margin: 20px 0;
-            text-align: center;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+            header {
+                padding: 10px 15px;
             }
 
-            aside {
-                width: 100%;
-                position: static;
+            header h1 {
+                font-size: 1.1em;
             }
 
             main {
-                padding: 20px;
+                padding: 20px 15px;
             }
 
-            h1 {
-                font-size: 2em;
+            main h1 {
+                font-size: 1.8em;
             }
 
-            h2 {
-                font-size: 1.5em;
+            main h2 {
+                font-size: 1.4em;
             }
 
-            pre {
-                overflow-x: auto;
+            main pre {
+                font-size: 12px;
+                padding: 12px;
+            }
+
+            button {
+                padding: 6px 12px;
                 font-size: 0.8em;
             }
-        }
-
-        .toc {
-            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>📚 Visor de Markdown</h1>
-        <p>HTML5-CSS3 by Akademic</p>
+        <h1>📚 HTML5 & CSS3 - Weblearning by Akademic</h1>
         <div class="controls">
             <button onclick="reloadMarkdown()">🔄 Recargar</button>
             <button onclick="downloadHTML()">⬇️ Descargar HTML</button>
-            <button onclick="toggleSidebar()">📑 Tabla de Contenidos</button>
+            <button onclick="window.location.href='../index.html'">🏠 Inicio</button>
         </div>
     </header>
 
-    <div class="container">
-        <aside id="sidebar">
-            <h3>Índice</h3>
-            <ul id="toc"></ul>
-        </aside>
-        <main id="content">
-            <div class="loading">Cargando...</div>
-        </main>
-    </div>
+    <main id="content">
+        <div class="loading">⏳ Cargando contenido...</div>
+    </main>
 
     <script>
-        // Convertidor Markdown a HTML
+        // Escapar HTML para bloques de código
         function escapeHtml(text) {
-            const map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
-            return text.replace(/[&<>"']/g, m => map[m]);
+            return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
         }
 
+        // Convertidor Markdown a HTML mejorado
         function markdownToHtml(markdown) {
             let html = markdown;
 
-            // Códigos de bloque
-            html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-                const language = lang || 'javascript';
-                return `<pre><code class="language-${language}">${escapeHtml(code.trim())}</code></pre>`;
+            // Primero procesamos los bloques de código para protegerlos
+            const codeBlocks = [];
+            html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
+                const language = lang || 'text';
+                const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
+                codeBlocks.push(`<pre><code class="language-${language}">${escapeHtml(code.trimEnd())}</code></pre>`);
+                return placeholder;
             });
+
+            // Código inline (backticks simples)
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
 
             // Líneas horizontales
             html = html.replace(/^---+$/gm, '<hr>');
 
-            // Títulos
+            // Títulos (de mayor a menor para evitar conflictos)
             html = html.replace(/^#### (.*?)$/gm, '<h4>$1</h4>');
             html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
             html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
-            html = html.replace(/^# (.*?)$/gm, '<h1 id="title-$1">$1</h1>');
+            html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
 
             // Negrita y cursiva
             html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
             html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+            html = html.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>');
 
             // Enlaces
-            html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+            html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
-            // Listas desordenadas (- o *)
-            html = html.replace(/^\s*[-*]\s+(.*?)$/gm, '<li>$1</li>');
-
-            // Procesar listas
-            let listHtml = html;
-            listHtml = listHtml.replace(/(<li>.*?<\/li>)/s, (match) => {
-                return '<ul>' + match + '</ul>';
-            });
-            listHtml = listHtml.replace(/<\/ul>\s*<ul>/g, '');
-            html = listHtml;
-
-            // Listas ordenadas
-            html = html.replace(/^\s*\d+\.\s+(.*?)$/gm, '<li>$1</li>');
-
-            // Párrafos
+            // Procesar listas y párrafos línea por línea
             const lines = html.split('\n');
             let result = [];
+            let inList = false;
+            let listType = null;
             let paragraph = [];
 
-            for (let line of lines) {
-                if (line.trim() === '') {
-                    if (paragraph.length > 0) {
-                        result.push('<p>' + paragraph.join(' ').trim() + '</p>');
-                        paragraph = [];
-                    } else {
-                        result.push(line);
+            function closeParagraph() {
+                if (paragraph.length > 0) {
+                    const text = paragraph.join(' ').trim();
+                    if (text && !text.startsWith('__CODE_BLOCK_')) {
+                        result.push('<p>' + text + '</p>');
+                    } else if (text) {
+                        result.push(text);
                     }
-                } else if (line.match(/^<(h[1-6]|pre|ul|ol|hr|blockquote|li)/)) {
-                    if (paragraph.length > 0) {
-                        result.push('<p>' + paragraph.join(' ').trim() + '</p>');
-                        paragraph = [];
-                    }
-                    result.push(line);
-                } else {
-                    paragraph.push(line);
+                    paragraph = [];
                 }
             }
 
-            if (paragraph.length > 0) {
-                result.push('<p>' + paragraph.join(' ').trim() + '</p>');
+            function closeList() {
+                if (inList) {
+                    result.push(listType === 'ul' ? '</ul>' : '</ol>');
+                    inList = false;
+                    listType = null;
+                }
             }
 
-            return result.join('\n');
-        }
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                const trimmed = line.trim();
 
-        function generateTableOfContents(html) {
-            const headings = html.match(/<h[2-3]>(.*?)<\/h[2-3]>/g) || [];
-            const toc = [];
+                // Línea vacía
+                if (trimmed === '') {
+                    closeParagraph();
+                    closeList();
+                    continue;
+                }
 
-            headings.forEach((heading, index) => {
-                const level = heading[2];
-                const text = heading.replace(/<h[2-3]>(.*?)<\/h[2-3]>/, '$1');
-                const id = `heading-${index}`;
-                toc.push({ level, text, id, index });
+                // Bloques de código (placeholder)
+                if (trimmed.startsWith('__CODE_BLOCK_')) {
+                    closeParagraph();
+                    closeList();
+                    result.push(trimmed);
+                    continue;
+                }
+
+                // Elementos HTML ya procesados
+                if (trimmed.match(/^<(h[1-6]|hr|blockquote)/)) {
+                    closeParagraph();
+                    closeList();
+                    result.push(line);
+                    continue;
+                }
+
+                // Lista desordenada
+                const ulMatch = trimmed.match(/^[-*]\s+(.*)$/);
+                if (ulMatch) {
+                    closeParagraph();
+                    if (!inList || listType !== 'ul') {
+                        closeList();
+                        result.push('<ul>');
+                        inList = true;
+                        listType = 'ul';
+                    }
+                    result.push('<li>' + ulMatch[1] + '</li>');
+                    continue;
+                }
+
+                // Lista ordenada
+                const olMatch = trimmed.match(/^\d+\.\s+(.*)$/);
+                if (olMatch) {
+                    closeParagraph();
+                    if (!inList || listType !== 'ol') {
+                        closeList();
+                        result.push('<ol>');
+                        inList = true;
+                        listType = 'ol';
+                    }
+                    result.push('<li>' + olMatch[1] + '</li>');
+                    continue;
+                }
+
+                // Texto normal - agregar al párrafo
+                closeList();
+                paragraph.push(line);
+            }
+
+            closeParagraph();
+            closeList();
+
+            html = result.join('\n');
+
+            // Restaurar bloques de código
+            codeBlocks.forEach((block, index) => {
+                html = html.replace(`__CODE_BLOCK_${index}__`, block);
+                html = html.replace(`<p>__CODE_BLOCK_${index}__</p>`, block);
             });
 
-            return toc;
-        }
-
-        function updateTableOfContents(toc) {
-            const tocElement = document.getElementById('toc');
-            tocElement.innerHTML = toc.map((item, i) => {
-                const indent = item.level === '2' ? '' : 'style="margin-left: 20px;"';
-                return `<li ${indent}><a href="#heading-${item.index}">${item.text}</a></li>`;
-            }).join('');
+            return html;
         }
 
         async function reloadMarkdown() {
+            const content = document.getElementById('content');
+            content.innerHTML = '<div class="loading">⏳ Cargando contenido...</div>';
+
             try {
                 const response = await fetch('HTML5-CSS3.md');
                 if (!response.ok) throw new Error('No se pudo cargar el archivo');
 
                 const markdown = await response.text();
                 const html = markdownToHtml(markdown);
+                content.innerHTML = html;
 
-                // Agregar IDs a los headings para enlaces
-                let htmlWithIds = html.replace(/<h([2-3])>(.*?)<\/h\1>/g, (match, level, text, offset) => {
-                    const id = `heading-${offset}`;
-                    return `<h${level} id="${id}">${text}</h${level}>`;
-                });
-
-                document.getElementById('content').innerHTML = htmlWithIds;
-
-                // Actualizar tabla de contenidos
-                const toc = generateTableOfContents(htmlWithIds);
-                updateTableOfContents(toc);
-
-                // Mostrar mensaje de éxito
                 console.log('✅ Markdown cargado correctamente');
             } catch (error) {
-                document.getElementById('content').innerHTML = 
-                    `<div class="error">Error al cargar el archivo: ${error.message}</div>`;
+                content.innerHTML = `<div class="error">❌ Error al cargar el archivo: ${error.message}<br><br>Asegúrate de que el archivo HTML5-CSS3.md existe en la misma carpeta.</div>`;
             }
         }
 
         function downloadHTML() {
             const content = document.getElementById('content').innerHTML;
-            const title = document.querySelector('h1')?.textContent || 'documento';
+            const title = document.querySelector('main h1')?.textContent || 'documento';
 
             const html = `<!DOCTYPE html>
 <html lang="es">
@@ -471,15 +454,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title}</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { color: #667eea; }
-        pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
-        code { background: #f4f4f4; padding: 2px 5px; }
-        a { color: #667eea; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; max-width: 1000px; margin: 0 auto; padding: 40px; background: #1a1a2e; color: #eee; line-height: 1.7; }
+        h1, h2, h3, h4 { color: #667eea; margin: 1.5em 0 0.5em; }
+        h1 { border-bottom: 2px solid #667eea; padding-bottom: 0.3em; }
+        p { margin-bottom: 1em; color: #ddd; }
+        a { color: #74b9ff; }
+        pre { background: #0d1117; border: 1px solid #30363d; padding: 16px; border-radius: 6px; overflow-x: auto; margin: 1em 0; }
+        pre code { background: none; color: #e6edf3; }
+        code { background: rgba(110, 118, 129, 0.4); color: #ff7b72; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; }
+        ul, ol { margin-left: 1.5em; margin-bottom: 1em; }
+        li { margin-bottom: 0.5em; color: #ddd; }
+        hr { border: none; border-top: 1px solid #30363d; margin: 2em 0; }
+        strong { color: #fff; }
     </style>
 </head>
 <body>
-    ${content}
+${content}
 </body>
 </html>`;
 
@@ -487,20 +478,15 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = title.replace(/\s+/g, '-').toLowerCase() + '.html';
+            a.download = title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').toLowerCase() + '.html';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
 
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
-        }
-
         // Cargar markdown al iniciar
-        window.addEventListener('load', reloadMarkdown);
+        window.addEventListener('DOMContentLoaded', reloadMarkdown);
     </script>
 </body>
 </html>
